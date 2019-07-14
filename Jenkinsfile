@@ -1,3 +1,18 @@
+Jenkinsfile (Scripted Pipeline)
+node {
+    stage('Build') {
+        echo 'Building'
+    }
+    stage('Test') {
+        echo 'Testing'
+    }
+    if (currentBuild.currentResult == 'SUCCESS') {
+        stage('Deploy') {
+            echo 'Deploying'
+        }
+    }
+}
+/* declarative pipeline
 pipeline {
     agent any
     options {
@@ -21,7 +36,7 @@ pipeline {
         }
     }
 }
-
+ */
 /* play with mail notification 
 pipeline {
     agent any
