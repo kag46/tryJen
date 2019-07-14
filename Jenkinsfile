@@ -21,6 +21,8 @@ pipeline {
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
+                    cat /etc/fstab
+                    uname -a
                 '''
             }
         }
