@@ -1,5 +1,30 @@
 pipeline {
     agent any
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
+            }
+        }
+    }
+}
+
+/* play with mail notification 
+pipeline {
+    agent any
     stages {
         stage('No-op') {
             steps {
@@ -10,7 +35,7 @@ pipeline {
     post {
         always {
             echo 'One way or another, I have finished'
-            deleteDir() /* clean up our workspace */
+            deleteDir() /* clean up our workspace */ /*
         }
         success {
             echo 'I succeeeded!'
@@ -29,7 +54,7 @@ pipeline {
         }
     }
 }
-
+*/
 /* something not working( 
 pipeline {
     agent any
