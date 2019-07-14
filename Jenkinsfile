@@ -5,6 +5,7 @@ pipeline {
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
+        Valera = 'molodec'
     }
 
     stages {
