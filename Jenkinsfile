@@ -1,5 +1,21 @@
-/* using env variables*/
 pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                sh './gradlew check'
+            }
+        }
+    }
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+    }
+}
+
+/* using env variables*/
+/*pipeline {
     agent any
 
     environment {
@@ -16,7 +32,7 @@ pipeline {
             }
         }
     }
-}
+}*/
 
 /*defining envs*/
 /*pipeline {
