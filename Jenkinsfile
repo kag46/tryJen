@@ -1,5 +1,24 @@
-/*defining envs*/
+/* using env variables*/
 pipeline {
+    agent any
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'printenv'
+                echo 'valera'
+            }
+        }
+    }
+}
+
+/*defining envs*/
+/*pipeline {
     agent {
         docker { image 'node:7-alpine' }
     }
@@ -10,7 +29,7 @@ pipeline {
             }
         }
     }
-}
+} */
 /*
 pipeline {
     agent any
