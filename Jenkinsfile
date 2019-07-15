@@ -1,4 +1,16 @@
-pipeline {
+node {
+    stage('Build') {
+        echo 'Building....'
+    }
+    stage('Test') {
+        echo 'Testing....'
+    }
+    stage('Deploy') {
+        echo 'Deploying....'
+    }
+}
+
+/*pipeline {
     agent any
     stages {
         /* "Build" and "Test" stages omitted */
@@ -9,7 +21,7 @@ pipeline {
                 sh './run-smoke-tests'
             }
         }
-*/
+
         stage('Sanity check') {
             steps {
                 input "Does the staging environment look ok?"
@@ -23,7 +35,7 @@ pipeline {
         }
     }
 }
-
+*/
 
 /*Jenkinsfile (Scripted Pipeline)*/
 /*
